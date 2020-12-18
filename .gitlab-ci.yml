@@ -1,0 +1,30 @@
+stages:
+  - build
+  - test
+  - qa
+  - deploy
+
+empaquetar:
+  stage: build
+  script:
+    - echo "empaquetar"
+
+pruebas-unitarias:
+  stage: build
+  script:
+    - echo "pruebas-unitarias"
+
+pruebas-funcionales:
+  stage: test
+  script:
+    - echo "pruebas-funcionales"
+
+calidad-codigo:
+  stage: qa
+  script:
+    - echo "calidad-codigo"
+
+despliegue-host-heroku:
+  stage: deploy
+  script:
+    - echo "despliegue-host-heroku"
