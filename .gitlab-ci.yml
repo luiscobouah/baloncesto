@@ -35,8 +35,11 @@ pruebas-funcionales:
 
 calidad-codigo:
   stage: qa
+  dependencies:
+    - empaquetar
   script:
-    - echo "calidad-codigo"
+    - mvn sonar:sonar -Dsonar.host.url=http://sonarqube:9000 -Dsonar.qualitygate.wait=true -Dsonar.login=admin -Dsonar.password=Xzv%3475
+  allow_failure: true
 
 despliegue-host-heroku:
   stage: deploy
