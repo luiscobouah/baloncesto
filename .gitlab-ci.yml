@@ -7,7 +7,10 @@ stages:
 empaquetar:
   stage: build
   script:
-    - echo "empaquetar"
+    - mvn package -DskipTests=true
+  artifacts:
+    paths:
+      - target/
 
 pruebas-unitarias:
   stage: build
