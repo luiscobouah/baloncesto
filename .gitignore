@@ -2,3 +2,7 @@
 docker-compose.yml
 /nbproject/
 /.vscode/
+.classpath
+.project
+.settings/
+/bin/
