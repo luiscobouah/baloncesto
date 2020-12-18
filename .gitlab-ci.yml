@@ -43,5 +43,11 @@ calidad-codigo:
 
 despliegue-host-heroku:
   stage: deploy
+  dependencies:
+    - empaquetar
   script:
-    - echo "despliegue-host-heroku"
+    - export HEROKU_API_KEY=$HEROKU_API_KEY
+    - mvn heroku:deploy-war -Dheroku.appName=baloncesto -DskipTests=true
+  when: manual
+  only:
+    - master
