@@ -47,7 +47,7 @@ despliegue-host-heroku:
     - empaquetar
   script:
     - export HEROKU_API_KEY=$HEROKU_API_KEY
-    - mvn heroku:deploy-war -Dheroku.appName=baloncesto -DskipTests=true
+    - mvn heroku:deploy-war -Dheroku.appName=baloncesto-cobo -DskipTests=true
   when: manual
   only:
     - master
