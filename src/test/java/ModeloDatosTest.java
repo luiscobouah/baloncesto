@@ -4,12 +4,14 @@ import org.assertj.db.type.Source;
 import org.assertj.db.type.Table;
 
 public class ModeloDatosTest {
-    String dbHost = "jdbc:mysql://localhost";
-    String dbPort = "3309";
-    String dbName = "baloncesto";
-    String dbUser = "usuario";
-    String dbPass = "clave";
-    String url = dbHost + ":" + dbPort + "/" + dbName;
+     // Con variables de entorno
+     String dbHost = System.getenv().get("DATABASE_HOST");
+     String dbPort = System.getenv().get("DATABASE_PORT");
+     String dbName = System.getenv().get("DATABASE_NAME");
+     String dbUser = System.getenv().get("DATABASE_USER");
+     String dbPass = System.getenv().get("DATABASE_PASS");
+
+     String url = dbHost + ":" + dbPort + "/" + dbName;
 
 
     @Test
