@@ -77,6 +77,25 @@ public class ModeloDatos {
         }
     }
 
+    public boolean reiniciarVotos() {
+        boolean resultado;
+        try {
+            set = con.createStatement();
+            set.executeUpdate("UPDATE Jugadores SET votos=0");
+            rs.close();
+            set.close();
+            resultado = true;
+
+        } catch (Exception e) {
+            // No inserta en la tabla
+            System.out.println("No se eliminaron los votos");
+            System.out.println("El error es: " + e.getMessage());
+            resultado = false;
+        }
+
+        return resultado;
+    }
+
     public void cerrarConexion() {
         try {
             con.close();
