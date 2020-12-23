@@ -2,6 +2,7 @@ stages:
   - build
   - test
   - qa
+  - release
   - deploy
 
 empaquetar:
@@ -40,6 +41,16 @@ calidad-codigo:
   script:
     - mvn sonar:sonar -Dsonar.host.url=http://sonarqube:9000 -Dsonar.qualitygate.wait=true -Dsonar.login=admin -Dsonar.password=Xzv%3475
   allow_failure: true
+
+despliegue-host-heroku-pre:
+  stage: release
+  dependencies:
+    - empaquetar
+  script:
+    - export HEROKU_API_KEY=$HEROKU_API_KEY
+    - mvn heroku:deploy-war -Dheroku.appName=baloncesto-cobo-pre -DskipTests=true 
+  only:
+    - master  
 
 despliegue-host-heroku:
   stage: deploy
