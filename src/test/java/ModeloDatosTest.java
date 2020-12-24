@@ -40,9 +40,11 @@ public class ModeloDatosTest {
     @Test
     public void testActualizarJugador() {
         ModeloDatos instance = new ModeloDatos();
+        instance.abrirConexion();
         instance.actualizarJugador("Carroll");
         Source source = new Source(url, dbUser, dbPass);
-        Table jugadores = new Table(source, "Jugadores");        
+        Table jugadores = new Table(source, "Jugadores");
+        instance.cerrarConexion();        
         assertThat(jugadores).row().hasValues("1","Carroll","1");
    
     }
