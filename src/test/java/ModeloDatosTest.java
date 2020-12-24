@@ -26,7 +26,7 @@ public class ModeloDatosTest {
     @Test
     public void testExisteJugador() {
         System.out.println("Prueba de existeJugador");
-        String nombre = "";
+        String nombre = "Carroll";
         ModeloDatos instance = new ModeloDatos();
         boolean expResult = true;
         boolean result = instance.existeJugador(nombre);
