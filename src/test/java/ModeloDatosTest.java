@@ -28,8 +28,10 @@ public class ModeloDatosTest {
         System.out.println("Prueba de existeJugador");
         String nombre = "Carroll";
         ModeloDatos instance = new ModeloDatos();
+        instance.abrirConexion();
         boolean expResult = true;
         boolean result = instance.existeJugador(nombre);
+        instance.cerrarConexion();
         assertEquals(expResult, result);
        // fail("Fallo forzado.");
     }
