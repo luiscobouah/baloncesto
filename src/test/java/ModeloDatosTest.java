@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 import static org.assertj.db.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.assertj.db.type.Source;
 import org.assertj.db.type.Table;
 
@@ -23,10 +25,15 @@ public class ModeloDatosTest {
 
     @Test
     public void testExisteJugador() {
-        Source source = new Source(url, dbUser, dbPass);
-        Table jugadores = new Table(source, "jugadores");  
-        assertThat(jugadores).column("nombre").hasValues("Carroll");     
+        System.out.println("Prueba de existeJugador");
+        String nombre = "";
+        ModeloDatos instance = new ModeloDatos();
+        boolean expResult = true;
+        boolean result = instance.existeJugador(nombre);
+        assertEquals(expResult, result);
+       // fail("Fallo forzado.");
     }
+
 
     @Test
     public void testActualizarJugador() {
