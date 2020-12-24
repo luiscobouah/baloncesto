@@ -13,6 +13,13 @@ public class ModeloDatosTest {
 
      String url = dbHost + ":" + dbPort + "/" + dbName;
 
+    /*String dbHost = "jdbc:mysql://localhost";
+    String dbPort = "3306";
+    String dbName = "baloncesto";
+    String dbUser = "usuario";
+    String dbPass = "clave";
+    String url = dbHost + ":" + dbPort + "/" + dbName;*/
+
 
     @Test
     public void testExisteJugador() {
