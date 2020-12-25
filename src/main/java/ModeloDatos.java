@@ -15,8 +15,7 @@ public class ModeloDatos {
             String dbName = System.getenv().get("DATABASE_NAME");
             String dbUser = System.getenv().get("DATABASE_USER");
             String dbPass = System.getenv().get("DATABASE_PASS");
-            String url = dbHost + ":" + dbPort + "/" + dbName;
-          
+            String url = dbHost + ":" + dbPort + "/" + dbName;          
             con = DriverManager.getConnection(url, dbUser, dbPass);
 
         } catch (Exception e) {
