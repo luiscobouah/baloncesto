@@ -16,6 +16,7 @@ public class ModeloDatos {
             String dbUser = System.getenv().get("DATABASE_USER");
             String dbPass = System.getenv().get("DATABASE_PASS");
             String url = dbHost + ":" + dbPort + "/" + dbName;
+          
             con = DriverManager.getConnection(url, dbUser, dbPass);
 
         } catch (Exception e) {
@@ -36,6 +37,7 @@ public class ModeloDatos {
                 cad = cad.trim();
                 if (cad.compareTo(nombre.trim()) == 0) {
                     existe = true;
+                    System.out.println("existe");
                 }
             }
             rs.close();
