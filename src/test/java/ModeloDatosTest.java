@@ -1,5 +1,3 @@
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.assertj.db.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,34 +17,28 @@ public class ModeloDatosTest {
 
      String url = dbHost + ":" + dbPort + "/" + dbName;
 
-    @BeforeAll
-    public static void initModeloDatos() {
-        instance = new ModeloDatos();
-        instance.abrirConexion();
-        System.out.println("initModeloDatos");
-    }
-
-    @AfterAll
-    public static void finalizeModeloDatos() {
-        instance.cerrarConexion();
-    }
-
     @Test
     public void testExisteJugador() {
         System.out.println("Prueba de existeJugador");
         String nombre = "Carroll";        
         boolean expResult = true;
+        instance = new ModeloDatos();
+        instance.abrirConexion();
         boolean result = instance.existeJugador(nombre);        
-        assertEquals(expResult, result);      
+        assertEquals(expResult, result);  
+        instance.cerrarConexion();    
     }
 
 
     @Test
-    public void testActualizarJugador() {        
+    public void testActualizarJugador() {   
+        instance = new ModeloDatos();
+        instance.abrirConexion();     
         instance.actualizarJugador("Carroll");
         Source source = new Source(url, dbUser, dbPass);
         Table jugadores = new Table(source, "Jugadores");            
         assertThat(jugadores).row().hasValues("1","Carroll","1");
+        instance.cerrarConexion();
    
     }
 }
