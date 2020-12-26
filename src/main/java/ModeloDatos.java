@@ -11,7 +11,7 @@ public class ModeloDatos {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String dbHost = "jdbc:mysql://localhost";
-            String dbPort = "3309";
+            String dbPort = "3306";
             String dbName = "baloncesto";
             String dbUser = "usuario";
             String dbPass = "clave";
