@@ -10,15 +10,12 @@ public class ModeloDatos {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Con variables de entorno
             String dbHost = System.getenv().get("DATABASE_HOST");
             String dbPort = System.getenv().get("DATABASE_PORT");
             String dbName = System.getenv().get("DATABASE_NAME");
             String dbUser = System.getenv().get("DATABASE_USER");
             String dbPass = System.getenv().get("DATABASE_PASS");
-
-            String url = dbHost + ":" + dbPort + "/" + dbName;
+            String url = dbHost + ":" + dbPort + "/" + dbName;          
             con = DriverManager.getConnection(url, dbUser, dbPass);
 
         } catch (Exception e) {
@@ -39,6 +36,7 @@ public class ModeloDatos {
                 cad = cad.trim();
                 if (cad.compareTo(nombre.trim()) == 0) {
                     existe = true;
+                    System.out.println("existe");
                 }
             }
             rs.close();
@@ -75,6 +73,25 @@ public class ModeloDatos {
             System.out.println("No inserta en la tabla");
             System.out.println("El error es: " + e.getMessage());
         }
+    }
+
+    public boolean reiniciarVotos() {
+        boolean resultado;
+        try {
+            set = con.createStatement();
+            set.executeUpdate("UPDATE Jugadores SET votos=0");
+            rs.close();
+            set.close();
+            resultado = true;
+
+        } catch (Exception e) {
+            // No inserta en la tabla
+            System.out.println("No se eliminaron los votos");
+            System.out.println("El error es: " + e.getMessage());
+            resultado = false;
+        }
+
+        return resultado;
     }
 
     public void cerrarConexion() {
