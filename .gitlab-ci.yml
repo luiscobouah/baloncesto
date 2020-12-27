@@ -45,7 +45,7 @@ calidad-codigo:
     - empaquetar
   script:
     - mvn sonar:sonar -Dsonar.host.url=http://sonarqube:9000 -Dsonar.qualitygate.wait=true -Dsonar.login=admin -Dsonar.password=Xzv%3475
-  allow_failure: true
+  allow_failure: false
 
 despliegue-host-heroku-pre:
   stage: release
