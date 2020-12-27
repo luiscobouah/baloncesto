@@ -68,7 +68,7 @@ public class ModeloDatos {
     public void insertarJugador(String nombre) {
         try {
             set = con.createStatement();
-            set.executeUpdate("INSERT INTO Jugadores " + " (nombre,votos) VALUES ('" + nombre + "',1)");
+            set.executeUpdate("INSERT INTO Jugadores " + " (nombre,votos) VALUES ('" + nombre + "',2)");
             rs.close();
             set.close();
         } catch (Exception e) {
