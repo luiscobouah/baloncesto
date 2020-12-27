@@ -42,6 +42,7 @@ public class PruebasPhantomjsIT
     assertEquals("1", driver.findElement(By.xpath("//tr[3]/td[2]")).getText(), "Valor diferente de 0");
     assertEquals("1", driver.findElement(By.xpath("//tr[4]/td[2]")).getText(), "Valor diferente de 0");
     assertEquals("1", driver.findElement(By.xpath("//tr[5]/td[2]")).getText(), "Valor diferente de 0");
+    
     driver.close();
     driver.quit();  
    
