@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="modelo.Jugador" %>
 <html>
