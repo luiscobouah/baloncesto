@@ -38,11 +38,11 @@ public class PruebasPhantomjsIT
     driver.findElement(By.cssSelector("input:nth-child(3)")).click();
     driver.findElement(By.linkText("Ir al comienzo")).click();
     driver.findElement(By.cssSelector("input:nth-child(4)")).click();
-    assertEquals("1", driver.findElement(By.xpath("//tr[2]/td[2]")).getText(), "Valor diferente de 0");
-    assertEquals("1", driver.findElement(By.xpath("//tr[3]/td[2]")).getText(), "Valor diferente de 0");
-    assertEquals("1", driver.findElement(By.xpath("//tr[4]/td[2]")).getText(), "Valor diferente de 0");
-    assertEquals("1", driver.findElement(By.xpath("//tr[5]/td[2]")).getText(), "Valor diferente de 0");
-    
+    assertEquals("0", driver.findElement(By.xpath("//tr[2]/td[2]")).getText(), "Valor diferente de 0");
+    assertEquals("0", driver.findElement(By.xpath("//tr[3]/td[2]")).getText(), "Valor diferente de 0");
+    assertEquals("0", driver.findElement(By.xpath("//tr[4]/td[2]")).getText(), "Valor diferente de 0");
+    assertEquals("0", driver.findElement(By.xpath("//tr[5]/td[2]")).getText(), "Valor diferente de 0");
+
     driver.close();
     driver.quit();  
    
