@@ -22,9 +22,7 @@ public class ModeloDatos {
             con = DriverManager.getConnection(url, dbUser, dbPass);
 
         } catch (Exception e) {
-            // No se ha conectado
-            // System.out.println("No se ha podido conectar");
-            // System.out.println("El error es: " + e.getMessage());
+            
         }
     }
 
@@ -45,9 +43,7 @@ public class ModeloDatos {
             rs.close();
             set.close();
         } catch (Exception e) {
-            // No lee de la tabla
-            // System.out.println("No lee de la tabla");
-            // System.out.println("El error es: " + e.getMessage());
+           
         }
         return (existe);
     }
@@ -59,9 +55,7 @@ public class ModeloDatos {
             rs.close();
             set.close();
         } catch (Exception e) {
-            // No modifica la tabla
-            // System.out.println("No modifica la tabla");
-            // System.out.println("El error es: " + e.getMessage());
+           
         }
     }
 
@@ -72,9 +66,7 @@ public class ModeloDatos {
             rs.close();
             set.close();
         } catch (Exception e) {
-            // No inserta en la tabla
-            // System.out.println("No inserta en la tabla");
-            // System.out.println("El error es: " + e.getMessage());
+           
         }
     }
 
@@ -88,9 +80,7 @@ public class ModeloDatos {
             resultado = true;
 
         } catch (Exception e) {
-            // No inserta en la tabla
-            // System.out.println("No se eliminaron los votos");
-            // System.out.println("El error es: " + e.getMessage());
+           
             resultado = false;
         }
 
@@ -115,9 +105,7 @@ public class ModeloDatos {
             set.close();            
 
         } catch (Exception e) {
-            // No inserta en la tabla
-           // System.out.println("No se eliminaron los votos");
-           // System.out.println("El error es: " + e.getMessage());
+         
                    }
 
         return jugadoresList;
@@ -127,7 +115,7 @@ public class ModeloDatos {
         try {
             con.close();
         } catch (Exception e) {
-            // System.out.println(e.getMessage());
+           
         }
     }
 
