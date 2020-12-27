@@ -8,14 +8,20 @@ import modelo.Jugador;
 
 public class Acb extends HttpServlet {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private ModeloDatos bd;
     private ArrayList<Jugador> jugadoresList = new  ArrayList<Jugador>();
 
+    @Override
     public void init(ServletConfig cfg) throws ServletException {
         bd = new ModeloDatos();
         bd.abrirConexion();
     }
 
+    @Override
     public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession s = req.getSession(true);
         String nombreP = (String) req.getParameter("txtNombre");
@@ -52,7 +58,7 @@ public class Acb extends HttpServlet {
         }
        
     }
-
+    @Override
     public void destroy() {
         bd.cerrarConexion();
         super.destroy();
