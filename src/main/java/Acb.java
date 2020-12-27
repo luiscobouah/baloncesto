@@ -1,11 +1,15 @@
 
 import java.io.*;
+import java.util.ArrayList;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import modelo.Jugador;
+
 
 public class Acb extends HttpServlet {
 
     private ModeloDatos bd;
+    private ArrayList<Jugador> jugadoresList = new  ArrayList<Jugador>();
 
     public void init(ServletConfig cfg) throws ServletException {
         bd = new ModeloDatos();
@@ -37,6 +41,13 @@ public class Acb extends HttpServlet {
             if (accion.equals("Poner votos a cero")){
                 bd.reiniciarVotos();
                 res.sendRedirect(res.encodeRedirectURL("ResultadoReiniciarVotos.jsp"));
+            } else {
+
+                if (accion.equals("Ver votos")){
+                    jugadoresList = bd.obtenerJugadoresVotos();
+                    s.setAttribute("jugadores", jugadoresList);
+                    res.sendRedirect(res.encodeRedirectURL("VerVotos.jsp"));
+                }
             }
         }
        

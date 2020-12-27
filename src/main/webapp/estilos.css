@@ -7,3 +7,13 @@ body {
     color: yellow;
     background-color: darkred;
 }
+
+.reiniciarVotos {
+    color:  darkblue;
+    background-color:  white;
+}
+
+.votosJugadores {
+    color:  darkblue;
+    background-color:  white;
+}

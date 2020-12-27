@@ -1,4 +1,7 @@
 import java.sql.*;
+import java.util.ArrayList;
+
+import modelo.Jugador;
 
 public class ModeloDatos {
 
@@ -92,6 +95,32 @@ public class ModeloDatos {
         }
 
         return resultado;
+    }
+
+    public ArrayList<Jugador> obtenerJugadoresVotos() {
+       ArrayList<Jugador> jugadoresList = new  ArrayList<Jugador>();
+        try {
+            set = con.createStatement();
+            rs = set.executeQuery("SELECT * FROM Jugadores");
+
+            while(rs.next()){
+               Jugador jugador = new Jugador();
+               jugador.setId(rs.getInt("id"));
+               jugador.setNombre(rs.getString("nombre"));
+               jugador.setVotos(rs.getInt("votos"));
+               jugadoresList.add(jugador);
+            }           
+
+            rs.close();
+            set.close();            
+
+        } catch (Exception e) {
+            // No inserta en la tabla
+            System.out.println("No se eliminaron los votos");
+            System.out.println("El error es: " + e.getMessage());
+                   }
+
+        return jugadoresList;
     }
 
     public void cerrarConexion() {
